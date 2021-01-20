@@ -7,6 +7,7 @@ def phishing_check(suspicious_url, suspicious_image):
     # however, if url is not correct, yet the site still looks
     # very similar, then mark as phishing.
 
+    # Eventually replace average_hash with a proper fuzzy hash
     check_image = imagehash.average_hash(Image.open(suspicious_image))
     
     # Imagine a database of fuzzy hashes of login sites of commonly used sites
@@ -22,7 +23,7 @@ def phishing_check(suspicious_url, suspicious_image):
     else:
         print("Safe")
 
-# A malformed ProtonMail phishing website using a fake link
+# A distorted ProtonMail phishing website using a fake link
 phishing_check("account.protonemail.com", "image3.png")
 
 # A more subtle phishing site with fewer differences (an extra "c" in English)
